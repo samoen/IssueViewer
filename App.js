@@ -20,12 +20,10 @@ export default function App() {
           headers: new Headers({
             'Authorization': `Bearer ${githubToken}`,
             'X-GitHub-Api-Version': '2022-11-28',
-            'Content-Type': 'application/x-www-form-urlencoded',
           })
         }
       )
       const data = await api.json();
-      // console.log(data);
       setIssueList(data)
     } catch (error) {
       console.error(error);
