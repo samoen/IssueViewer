@@ -11,7 +11,7 @@ export default function App() {
   const [issueList, setIssueList] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const getIssues = async ()=>{
+  const getIssues = async () => {
     setLoading(true)
     try {
       const api = await fetch(
@@ -53,6 +53,14 @@ export default function App() {
     );
   };
 
+  const issueListItem = ({ navigation, item }) => {
+    return (
+      <Pressable onPress={() => navigation.navigate('View Issue', item)} style={styles.item}>
+        <Text>{item.title}</Text>
+      </Pressable>
+    )
+  };
+
   const IssueListScreen = ({ navigation }) => {
     return (
       <View style={styles.content}>
@@ -69,14 +77,6 @@ export default function App() {
         <Text>Created At: {route.params.created_at}</Text>
         <Text>Body: {route.params.body}</Text>
       </View>
-    )
-  };
-
-  const issueListItem = ({ navigation, item }) => {
-    return (
-      <Pressable onPress={() => navigation.navigate('View Issue', item)} style={styles.item}>
-        <Text>{item.title}</Text>
-      </Pressable>
     )
   };
 

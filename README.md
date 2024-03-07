@@ -3,11 +3,15 @@
 A react native app to see open github issues assigned to you.
 
 # Dev startup
-In your github account create a personal access token with at least permission to read issues from  public repositories.
 
-Create a file in the root directory named .env.local
+From your github account navigate to settings -> developer settings -> personal access tokens. 
 
-In the file place your github token like so: EXPO_PUBLIC_GITHUB_PERSONAL_TOKEN=token_here
+Create a personal access token with permission to read issues from your repositories.
+
+Clone this repo and create a file in the root directory named .env.local
+
+In that file place the following line and supply your personal access token:
+`EXPO_PUBLIC_GITHUB_PERSONAL_TOKEN=your_token`
 
 npm install
 
